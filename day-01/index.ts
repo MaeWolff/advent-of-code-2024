@@ -31,15 +31,14 @@ function getTotalDistance() {
 function getTotalSimilarityScore() {
   const [left, right] = createLists();
   const leftCounter: Record<number, number> = {};
-  let total = 0;
 
   left.forEach((value) => {
     leftCounter[value] = (leftCounter[value] || 0) + 1;
   });
 
-  right.forEach((value) => (total += value * leftCounter[value] || 0));
-
-  return total;
+  return right.reduce((acc, value) => {
+    return acc + value * (leftCounter[value] || 0);
+  }, 0);
 }
 
 // Output
