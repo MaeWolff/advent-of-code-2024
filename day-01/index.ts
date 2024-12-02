@@ -1,8 +1,6 @@
-const input = await Bun.file("./day-01/input.txt").text();
+import { calculateDifference } from "../utils/calculations";
 
-function calculateDifference(number1: number, number2: number) {
-  return Math.abs(number1 - number2);
-}
+const input = await Bun.file("./day-01/input.txt").text();
 
 // Solution - Part 1
 
